@@ -4,6 +4,8 @@
 
 # Exercícios - Parte I
 
+Neste exercício, o objetivo foi familiarização com o uso do terminal para navegar em diretórios, criar e editar arquivos.
+
 1. Criar um diretório e navegar até ele.
 
 2. Criar um arquivo .txt.

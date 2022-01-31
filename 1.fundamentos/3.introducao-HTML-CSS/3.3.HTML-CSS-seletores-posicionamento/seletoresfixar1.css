@@ -1,0 +1,20 @@
+h1, p {
+    text-align: center;
+}
+li {
+    background-color: turquoise;
+}
+
+li:hover {
+    background-color: darkblue;
+    color: white
+}
+
+li:active {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+ol, ul {
+    /* Não tem mais pontinho ou números~ magia */
+    list-style: none;
+}
