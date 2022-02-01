@@ -7,17 +7,27 @@
     border: solid 2px red;
 }
 
+#titulo {
+    display: inline-block;
+}
+
+#nav {
+    display: inline-block;
+    
+}
+
 #mainsection {
     border: solid 2px red;
 }
 
 .factsection {
+    display: inline-block;
     border: solid 2px red;
     width: 100%;
 }
 
 .images {
-    width: 500px;
+    width: 400px;
 }
 
 #smolfacts {
@@ -26,7 +36,9 @@
 }
 
 #aside {
+    height: 100%;
     display: inline-block;
     border: solid 2px red;
     width: 20%;
+    vertical-align: top;
 }
