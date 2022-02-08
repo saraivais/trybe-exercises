@@ -1,3 +1,5 @@
+// Parte 2 - Part 2;
+
 // Exercício 1 - Criar uma função que receba uma string e retorne true ou false para palíndromo;
 // Exercise 1 - Create a function that checks whether a string is or not a palindrome and returns a boolean;
 
@@ -164,4 +166,4 @@ function stringEndingMatch (myString, stringEnding) {
 
 // Testing to check if it works:
 // console.log(stringEndingMatch(word, ending));
-// It fucking works!!!!!
+// It fucking works!
