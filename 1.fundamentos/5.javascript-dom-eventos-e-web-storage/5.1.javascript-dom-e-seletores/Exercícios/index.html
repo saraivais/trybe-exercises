@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.1</title>
+    
+    <style>
+      main, section {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin: 0 auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <header> 
+      <h1 class="title">Exercício 5.1 - JavaEscripito </h1>
+    </header>    
+    <main class="main-content">
+      <section class="center-content">
+        <p>Texto padrão do nosso site</p>
+        <p>--dias de luta-dias de mais luta ainda--</p>
+        <p>Trybe</p>
+      </section>
+    </main>
+    <script>
+
+        function mudaTexto(tagName, string) {
+            let textoDoisAnos = document.getElementsByTagName(tagName);
+            textoDoisAnos[0].innerText = string;
+        }
+        mudaTexto('p', 'socorro caique');
+
+        function trocaCorQuadrado(tag, cor) {
+            let quadradoAmarelo = document.getElementsByClassName(tag);
+            quadradoAmarelo[0].style.backgroundColor = cor;
+        }
+        trocaCorQuadrado('main-content', 'rgb(76,164,109)');
+        trocaCorQuadrado('center-content', 'white');
+
+        function corrigeTexto(tag, string) {
+            let textoASerCorrigido = document.getElementsByTagName(tag);
+            textoASerCorrigido[0].innerText = string; 
+        }
+        corrigeTexto('h1', 'Exercício 5.1 - JavaScript.');
+
+        function upperCase(tag) {
+            let lowerCase = document.getElementsByTagName(tag);
+            lowerCase[0].innerText = lowerCase[0].innerText.toUpperCase();
+        }
+        // upperCase('p');
+
+        function everybodyStandUp(tag) {
+            let allLowerCase = document.getElementsByTagName(tag);
+            for (let taggy of allLowerCase) {
+                taggy.innerText = taggy.innerText.toUpperCase();
+            }
+        }
+        everybodyStandUp('p');
+
+        function everybodyShowUp(tag) {
+            let toShow = document.getElementsByTagName(tag);
+            for (taggy of toShow) {
+                console.log(taggy);
+            }
+        }
+        everybodyShowUp('p');
+
+        /*
+        Aqui você vai modificar os elementos já existentes utilizando apenas as funções:
+        - document.getElementById()
+        - document.getElementsByClassName()
+        - document.getElementsByTagName()
+        Crie uma função que mude o texto na tag <p> para uma descrição de como você se vê daqui a 2 anos. (Não gaste tempo pensando no texto e sim realizando o exercício)
+        Crie uma função que mude a cor do quadrado amarelo para o verde da Trybe (rgb(76,164,109)).
+        Crie uma função que mude a cor do quadrado vermelho para branco.
+        Crie uma função que corrija o texto da tag <h1>.
+        Crie uma função que modifique todo o texto da tag <p> para maiúsculo.
+        Crie uma função que exiba o conteúdo de todas as tags <p> no console.
+        */
+    </script>
+  </body>
+</html>
