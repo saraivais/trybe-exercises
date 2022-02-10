@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main id="paiDoPai">
+        <section id="pai">
+          <section id="primeiroFilho"></section>
+          <section id="elementoOndeVoceEsta">
+            <section id="primeiroFilhoDoFilho"></section>
+            <section id="segundoEUltimoFilhoDoFilho"></section>
+          </section>
+          Atenção!
+          <section id="terceiroFilho"></section>
+          <section id="quartoEUltimoFilho"></section>
+        </section>
+    </main>
+
+      <script>
+
+        // Parte 1
+          let start = document.getElementById('elementoOndeVoceEsta');
+          let pai = start.parentNode;
+          // pai.style.backgroundColor = 'red';
+
+          // let primeiroFilhoDeOndeEstou = start.firstElementChild;
+          // let texto = 'Caique socorro';
+          // primeiroFilhoDeOndeEstou.innerText = texto;
+
+          // let primeiroFilhoDoPai = pai.firstElementChild;
+
+          // let primeiroFilhoPeloIrmão = start.previousElementSibling;
+
+          // let textoAtenção = start.nextSibling;
+
+          // let thirdSon = start.nextElementSibling;
+
+          // let thirdSonFromDad = pai.firstElementChild.nextElementSibling.nextElementSibling;
+
+
+        // Parte 2
+          // document.createElement();
+          // document.appendChild();
+          // let newElement = document.createElement('section');
+          // newElement.innerText = 'Será que foi, dios mio?';
+          // pai.appendChild(newElement);
+
+          // let newSon = document.createElement('div');
+          // newSon.innerText = 'keep working, boys';
+          // start.appendChild(newSon);
+
+          // let anotherNewSon = document.createElement('p');
+          // anotherNewSon.innerText = "don't disappoint mama";
+          // primeiroFilhoDeOndeEstou.appendChild(anotherNewSon);
+
+          // let thirdSonFromChildOfFirstSonOfFirstSonSigh = anotherNewSon.parentElement.parentElement.nextElementSibling;
+
+        // Parte 3
+
+          let whereIamChildToRemove = start.lastElementChild;
+          whereIamChildToRemove.remove();
+
+          let primFilho = pai.firstElementChild;
+          primFilho.remove();
+
+          let fourthSon = pai.lastElementChild;
+          fourthSon.remove();
+
+          let thirdSonToRemove = pai.lastElementChild;
+          thirdSonToRemove.remove();
+
+          // let atencaoTexto = pai.lastChild;
+          // atencaoTexto.remove();
+
+          // último não consegui~ 
+          pai.lastChild.remove();
+          console.log(pai.children);
+
+
+      </script>
+</body>
+</html>
