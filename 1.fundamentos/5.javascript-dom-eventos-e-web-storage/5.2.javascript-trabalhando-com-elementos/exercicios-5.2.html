@@ -113,6 +113,33 @@
           let header3 = document.createElement('h3');
           main.appendChild(header3);
       }
+
+      // Exercício 10:
+      titulo.className = 'title';
+
+      // Exercício 11:
+      let allh3 = document.getElementsByTagName('h3');
+      console.log(allh3);
+
+      for (let item of allh3) {
+          item.className = 'description';
+      }
+
+      // Exercício 12:
+      let mainsChildren = main.children;
+      console.log(mainsChildren);
+      main.removeChild(mainsChildren[1]);
+
+      // Exercício 13:
+      sectionRight.style.marginRight = 'auto';
+
+      // Exercício 14:
+      sectionCenter.parentElement.style.backgroundColor = 'green';
+
+      // Exercício 15:
+      unorderedList.lastChild.remove();
+      unorderedList.lastChild.remove();
+
     </script>
   </body>
 </html>
