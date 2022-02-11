@@ -58,87 +58,182 @@
   <body>
     <script>
       // Exercício 1:
-      let container = document.body;
+    //   let container = document.body;
 
-      let titulo = document.createElement('h1');
-      titulo.innerText = 'Exercício 5.2 - JavaScript DOM';
-      container.appendChild(titulo);
+    //   let titulo = document.createElement('h1');
+    //   titulo.innerText = 'Exercício 5.2 - JavaScript DOM';
+    //   container.appendChild(titulo);
 
       // Exercício 2:
-      let main = document.createElement('main');
-      main.className = 'main-content';
-      container.appendChild(main);
+    //   let main = document.createElement('main');
+    //   main.className = 'main-content';
+    //   container.appendChild(main);
 
       // Exercício 3:
-      let sectionCenter = document.createElement('section');
-      sectionCenter.className = 'center-content';
-      main.appendChild(sectionCenter);
+    //   let sectionCenter = document.createElement('section');
+    //   sectionCenter.className = 'center-content';
+    //   main.appendChild(sectionCenter);
 
       // Exercício 4:
-      let paragraph = document.createElement('p');
-      paragraph.innerText = '시들고 저무는 그런 세상 이치에 날 가두려 하지 마 틀려도 괜찮아 이 삶은 내가 사니까';
-      sectionCenter.appendChild(paragraph);
+    //   let paragraph = document.createElement('p');
+    //   paragraph.innerText = '시들고 저무는 그런 세상 이치에 날 가두려 하지 마 틀려도 괜찮아 이 삶은 내가 사니까';
+    //   sectionCenter.appendChild(paragraph);
 
       // Exercício 5:
-      let sectionLeft = document.createElement('section');
-      sectionLeft.className = 'left-content';
-      main.appendChild(sectionLeft);
+    //   let sectionLeft = document.createElement('section');
+    //   sectionLeft.className = 'left-content';
+    //   main.appendChild(sectionLeft);
 
       // Exercício 6:
-      let sectionRight = document.createElement('section');
-      sectionRight.className = 'right-content';
-      main.appendChild(sectionRight);
+    //   let sectionRight = document.createElement('section');
+    //   sectionRight.className = 'right-content';
+    //   main.appendChild(sectionRight);
 
       // Exercício 7:
+    //   let imag = document.createElement('img');
+    //   imag.setAttribute('src', 'https://picsum.photos/200');
+    //   imag.className = 'small-image';
+    //   sectionLeft.appendChild(imag);
+
+      // Exercício 8:
+      //criar uma ul
+    //   let unorderedList = document.createElement('ul');
+    //   sectionRight.appendChild(unorderedList);
+      //criar 10 li
+    //   let listContent = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
+
+    //   for (let item of listContent) {
+    //       let listItem = document.createElement('li');
+    //       listItem.innerText = item;
+    //       unorderedList.appendChild(listItem);
+    //   }
+
+      // Exercício 9:
+    //   for (let i = 0; i < 3; i += 1) {
+    //       let header3 = document.createElement('h3');
+    //       main.appendChild(header3);
+    //   }
+
+      // Exercício 10:
+    //   titulo.className = 'title';
+
+      // Exercício 11:
+    //   let allh3 = document.getElementsByTagName('h3');
+    //   console.log(allh3);
+
+    //   for (let item of allh3) {
+    //       item.className = 'description';
+    //   }
+
+      // Exercício 12:
+    //   let mainsChildren = main.children;
+    //   console.log(mainsChildren);
+    //   main.removeChild(mainsChildren[1]);
+
+      // Exercício 13:
+    //   sectionRight.style.marginRight = 'auto';
+
+      // Exercício 14:
+    //   sectionCenter.parentElement.style.backgroundColor = 'green';
+
+      // Exercício 15:
+    //   unorderedList.lastChild.remove();
+    //   unorderedList.lastChild.remove();
+
+
+      // O que posso fazer pra melhorar o código (e não decepcionar o Caique)?
+      // Criar uma função para criação de elemento - que receba a tag que eu quero criar, a classe e o texto que vai receber;
+      // Criar uma função para posicionar o elemento onde eu quero no html - que receba o elemento criado pela função anterior e onde ela vai ser criada (endereço - pai);
+
+      function createChildElement (tagName, classToReceive = '', textToReceive = '') {
+          let newChildElement = document.createElement(tagName);
+          newChildElement.className = classToReceive;
+          newChildElement.innerText = textToReceive;
+          return newChildElement;
+      }
+
+      function addElement (element, parent) {
+          parent.appendChild(element);
+      }
+
+      // Exercício 1:
+      
+      let container = document.body;
+      addElement(createChildElement('h1', '', 'Exercício 5.2 - JavaScript DOM'), container);
+
+      // Exercício 2:
+      
+      addElement(createChildElement('main', 'main-content', ''), container);
+
+      // Exercício 3:
+      let main = document.querySelector('main');
+    //   console.log(main);
+      addElement(createChildElement('section', 'center-content'), main);
+
+      // Exercício 4:
+      let sectionCenter = document.querySelector('main').firstElementChild;
+    //   console.log(sectionCenter);
+      addElement(createChildElement('p', '', '시들고 저무는 그런 세상 이치에 날 가두려 하지 마 틀려도 괜찮아 이 삶은 내가 사니까'), sectionCenter);
+
+      // Exercício 5:
+      addElement(createChildElement('section', 'left-content'), main);
+
+      // Exercício 6:
+      addElement(createChildElement('section', 'right-content'), main);
+
+      // Exercício 7:
+    //   console.log(main.children);
+      let sectionLeft = document.querySelector('main').firstElementChild.nextElementSibling;
+    //   console.log(sectionLeft);
+
       let imag = document.createElement('img');
       imag.setAttribute('src', 'https://picsum.photos/200');
       imag.className = 'small-image';
       sectionLeft.appendChild(imag);
 
       // Exercício 8:
-      //criar uma ul
-      let unorderedList = document.createElement('ul');
-      sectionRight.appendChild(unorderedList);
-      //criar 10 li
-      let listContent = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
+      let sectionRight = document.querySelector('main').firstElementChild.nextElementSibling.nextElementSibling;
+    //   console.log(sectionRight);
+      addElement(createChildElement('ul'), sectionRight);
 
-      for (let item of listContent) {
-          let listItem = document.createElement('li');
-          listItem.innerText = item;
-          unorderedList.appendChild(listItem);
+      let listContent = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
+      let unorderedList = sectionRight.firstElementChild;
+    //   console.log(unorderedList);
+      for (item of listContent) {
+          addElement(createChildElement('li', '', item), unorderedList);
       }
 
       // Exercício 9:
-      for (let i = 0; i < 3; i += 1) {
-          let header3 = document.createElement('h3');
-          main.appendChild(header3);
+      for (let i = 0; i < 3; i+= 1) {
+          addElement(createChildElement('h3', '', 'h3'), main);
       }
 
       // Exercício 10:
-      titulo.className = 'title';
+    //   console.log(container.children);
+      container.children[1].className = 'title';
 
       // Exercício 11:
-      let allh3 = document.getElementsByTagName('h3');
-      console.log(allh3);
-
-      for (let item of allh3) {
-          item.className = 'description';
+    //   console.log(main.children);
+      for (let i = 3; i < 6; i += 1) {
+          main.children[i].className = 'description';
       }
 
       // Exercício 12:
-      let mainsChildren = main.children;
-      console.log(mainsChildren);
-      main.removeChild(mainsChildren[1]);
+    //   console.log(main.children);
+      main.removeChild(main.children[1]);
 
       // Exercício 13:
-      sectionRight.style.marginRight = 'auto';
+    //   console.log(main.children);
+      main.children[1].style.marginRight = 'auto';
 
       // Exercício 14:
       sectionCenter.parentElement.style.backgroundColor = 'green';
 
-      // Exercício 15:
-      unorderedList.lastChild.remove();
-      unorderedList.lastChild.remove();
+      // Exercício 15: 
+      console.log(unorderedList.children);
+      unorderedList.removeChild(unorderedList.lastChild);
+      unorderedList.removeChild(unorderedList.lastChild);
+      // Fazer isso de um jeito elegante, maybe?
 
     </script>
   </body>
