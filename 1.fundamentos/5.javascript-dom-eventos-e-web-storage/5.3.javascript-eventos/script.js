@@ -161,7 +161,53 @@ function addEventListenerToClass() {
 
 addEventListenerToClass();
 
-// Implemente uma função que adiciona um evento que, ao clicar em um dia do mês no calendário, atribua a este dia a cor da legenda da sua tarefa selecionada.
+// Exercício 10: Implemente uma função que adiciona um evento que, ao clicar em um dia do mês no calendário, atribua a este dia a cor da legenda da sua tarefa selecionada.
 // Ao clicar novamente no dia com a cor da legenda, a sua cor deverá voltar à configuração inicial rgb(119,119,119) .
 
-// try
+for (day of days) {
+  day.addEventListener('click', changeColorTask);
+}
+
+function changeColorTask(event) {
+  let taskSelected = document.querySelector('.task-selected');
+  if (event.target.style.color !== taskSelected.style.backgroundColor) {
+    event.target.style.color = taskSelected.style.backgroundColor;
+  } else if (event.target.style.color === taskSelected.style.backgroundColor) {
+    event.target.style.color = 'rgb(119,119,119)';
+  }
+}
+
+/* BONUS
+  Vamos adicionar compromissos ao seu calendário? Implemente uma função que, ao digitar um compromisso na caixa de texto "COMPROMISSOS", adiciona o item à lista "MEUS COMPROMISSOS" ao clicar no botão "ADICIONAR".
+  Se nenhum caractere for inserido no campo input , a função deve retornar um alert com uma mensagem de erro ao clicar em "ADICIONAR".
+  Ao pressionar a tecla "enter" o evento também deverá ser disparado.
+ */
+
+  // O usuário digita no campo
+  // O addEventListener tá no botão adicionar
+  // O evento tem que pegar o texto do input, criar uma li pra a ul de classe task-list e adicionar lá.
+
+let addButton = document.querySelector('#btn-add');
+
+addButton.addEventListener('click', addTaskToList);
+let inputTask = document.querySelector('#task-input');
+let taskUl = document.querySelector('.task-list');
+
+function addTaskToList() {
+  // console.log(inputTask.value);
+  let newTask = document.createElement('li');
+  newTask.innerText = inputTask.value;
+  taskUl.appendChild(newTask);
+}
+
+inputTask.addEventListener('keyup', addTaskToListViaEnter);
+
+function addTaskToListViaEnter(event) {
+  let key = event.which;
+  if (key === 13) { //enter = 13
+    let taskText = event.target.value;
+    let newTask = document.createElement('li');
+    newTask.innerText = taskText;
+    taskUl.appendChild(newTask);    
+  }
+}
