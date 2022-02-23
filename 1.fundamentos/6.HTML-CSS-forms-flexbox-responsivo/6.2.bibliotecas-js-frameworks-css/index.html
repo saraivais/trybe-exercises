@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Trybe Trip</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <h1 class="display-3 text-center">Concorra à viagem dos seus sonhos com a TrybeTrip</h1>
+  <form action="">
+    <fieldset class="container">
+
+      <div class="mb-3">
+        <label for="fullName">Nome Completo:</label>
+        <input class="form-control" type="text" id="fullName" placeholder="Digite seu nome" minlength="10" maxlength="40" required>  
+      </div>
+      <div class="mb-3">
+        <label for="email">Endereço de e-mail:</label>
+      <input class="form-control" type="email" id="email" name="email" placeholder="Digite seu e-mail" maxlength="50"   minlength="10" required>
+      </div>
+      
+      <div class="form-check">
+        <label class="form-check-label" for="destination1">Cidade</label>
+        <input class="form-check-input" type="radio" id="destination1" className="radios" name="destinations" value="Cidade" required> 
+      </div>
+      <div class="form-check">   
+        <label class="form-check-label" for="destination2">Campo</label>
+        <input class="form-check-input" type="radio" id="destination2" className="radios" name="destinations" value="Campo" required>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label" for="destination3">Praia</label>
+        <input class="form-check-input" type="radio" id="destination3" className="radios" name="destinations" value="Praia" required>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label" for="destination4">Montanhas</label>
+        <input class="form-check-input" type="radio" id="destination4" className="radios" name="destinations" value="Montanhas" required>
+      </div>
+      
+      <div class="form-floating">
+        <textarea class="form-control" name="why" id="why" cols="60" rows="10" placeholder=>Digite sua resposta vencedora aqui</textarea>
+        <label for="why">Por que você deveria ser a pessoa desenvolvedora escolhida pelo concurso TrybeTrip? </label>
+      </div>
+      
+      <div class="input-group mb-3">
+        <label for="datepicker">Qual a melhor data para realizar sua viagem?</label>
+        <input type="text" id="datepicker">
+      </div>
+  
+      <div class="form-check">
+        <label class="form-check-label" for="promo">Gostaria de receber outras incríveis oportunidades oferecidas pela Trybe. </label>
+        <input class="form-check-input" type="checkbox" name="promo" id="promo">
+      </div>
+     
+      <div class="form-check">
+        <label class="form-check-label" for="agreement">Concordo que imagens de minhas férias poderão ser usadas na divulgação de concursos futuros.</label>
+        <input class="form-check-input" type="checkbox" name="agreement" id="agreement" required>
+      </div>
+
+    
+
+  
+      <button class="btn btn-success" type="submit" id="submit-btn" disabled>Participar do concurso TrybeTrip</button>
+      <button class="btn btn-danger" type="button" id="clear-btn">Apagar informações</button>
+    </fieldset>
+  </form>
+  
+
+
+  <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+  <script>
+    var picker = new Pikaday({ field: document.getElementById('datepicker') });
+
+    function textInputValidation() {
+      const email = document.querySelector('#email').value.length;
+      const invalidEmail = email < 10 || email > 50;
+
+      const name = document.querySelector('#fullName').value.length;
+      const invalidName = name < 10 || name > 40;
+
+      const reason = document.querySelector('#why').value.length;
+      const invalidReason = reason > 500;
+
+      if (invalidEmail || invalidName || invalidReason) {
+        return false;
+      }
+      else {
+        return true;
+      }
+    }
+
+    function enableSubmit() {
+      const submitBtn = document.querySelector('#submit-btn');
+      const agreement = document.querySelector('#agreement');
+      submitBtn.disabled = !agreement.checked;
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+    }
+
+    function clearFields() {
+      const formElements = document.querySelectorAll('input');
+      const textArea = document.querySelector('textarea');
+      for (let index = 0; index < formElements.length; index += 1) {
+        const userInput = formElements[index];
+        userInput.value = '';
+        userInput.checked = false;
+      }
+      textArea.value = '';
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      const validation = textInputValidation();
+      if (validation === false) {
+        alert('Dados inválidos');
+      } else {
+        alert('Dados enviados com sucesso! Obrigado por participar do concurso TrybeTrip.');
+      }
+    }
+
+    window.onload = function () {
+      const clearBtn = document.querySelector('#clear-btn');
+      clearBtn.addEventListener('click', clearFields);
+      const submitBtn = document.querySelector('#submit-btn');
+      submitBtn.addEventListener('click', handleSubmit);
+      const agreement = document.querySelector('#agreement');
+      agreement.addEventListener('change', enableSubmit);
+    };
+
+  </script>
+</body>
+</html>
