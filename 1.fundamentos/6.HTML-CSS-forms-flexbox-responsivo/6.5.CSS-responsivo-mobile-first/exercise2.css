@@ -1,0 +1,253 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+li, p {
+  font-family: Raleway, sans-serif;
+}
+
+header p {
+  font-family: Vollkorn, serif;
+}
+
+h1, h2, h3 {
+  font-family: Vollkorn, serif;
+}
+
+footer {
+  text-align: center;
+}
+
+/*
+1 - Utilizando a abordagem mobile first e media queries , crie três versões de layout diferentes para essa página . Cada layout deve corresponder a um tamanho diferente de página (pequeno, médio e grande) . Faça pelo menos um commit para cada layout ;
+2 - Para fazer isso de forma adequada, você deve prestar atenção no conteúdo da página e pensar em como mostrá-lo em cada um dos tamanhos de tela:
+Onde a lista de capítulos deve estar posicionada?
+Como a história deve ser mostrada?
+Como o cabeçalho deve ser posicionado?
+O que fazer com as informações do autor em cada tamanho de tela?
+3 - Talvez você precise alterar o HTML um pouco, adicionando elementos para facilitar a estilização, ou talvez mudando um bloco de lugar dentro da página.
+*/
+
+/* Pequeno: lightpink; médio: lightgreen; grande: lightblue */
+
+/* font-family: Vollkorn, serif; */
+/* font-family: Poppins, sans-serif; 
+  font-family: Raleway, sans-serif;*/
+
+@media screen and (max-width: 600px) {
+  * {
+    background-color: lightpink;
+  }
+
+  li, p {
+    font-size: 1.1em;
+  }
+
+  h1, h2, h3 {
+    text-align: center;
+  }
+
+  header p {
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: 600;
+  }
+
+  header ul {
+    display: none;
+  }
+
+  .aside-one {
+    margin-left: 15px;
+  }
+
+  .aside-two {
+    margin-left: 15px;
+  }
+
+  .main-content {
+    padding: 15px;
+    text-align: justify;
+  }
+
+  footer {
+    padding: 20px;
+  }
+
+  footer h3 {
+    font-size: 1.5em;
+  }
+
+  footer p {
+    font-size: 1em;
+  }
+}
+
+
+
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+  * {
+    background-color: lightgreen;
+  }
+
+  li, p {
+    font-size: 1.3em;
+  }
+
+  h1, h2, h3 {
+    text-align: center;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+  }
+
+  header p {
+    margin-left: 20px;
+    font-size: 2.5em;
+    font-weight: 600;
+  }
+
+  header ul {
+    display: flex;
+    margin-right: 25px;
+  }
+
+  header ul li {
+    list-style: none;
+    margin-left: 10px;
+  }
+
+  .aside-one {
+    margin-left: 20px;
+  }
+  
+  .aside-one h2 {
+    text-align: left;
+    font-size: 1.8em;
+  }
+
+  .aside-two {
+    margin-left: 20px;
+  }
+
+  .aside-two h2 {
+    text-align: left;
+    font-size: 1.8em;
+  }
+
+  .main-content {
+    padding: 30px;
+    text-align: justify;
+  }
+
+  .main-content h1 {
+    font-size: 2.4em;
+    margin-top: 0;
+  }
+
+  footer {
+    padding: 0 40px 40px 40px;
+  }
+
+  footer h3 {
+    font-size: 2em;
+  }
+
+  footer p {
+    font-size: 1.1em;
+  }
+}
+
+
+@media screen and (min-width: 1000px) {
+  * {
+    background-color: lightblue;
+  }
+
+  li, p {
+    font-size: 1.3em;
+  }
+
+  h1, h2, h3 {
+    text-align: center;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+  }
+
+  header p {
+    margin-left: 20px;
+    font-size: 3.5em;
+    font-weight: 600;
+  }
+
+  header ul {
+    display: flex;
+    margin-right: 40px;
+  }
+
+  header ul li {
+    font-size: 1.8em;
+    list-style: none;
+    margin-left: 10px;
+  }
+
+  .asides {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .aside-one {
+    margin-left: 20px;
+  }
+  
+  .aside-one h2 {
+    font-size: 2.2em;
+    margin-bottom: 0;
+  }
+
+  .aside-two {
+    margin-left: 20px;
+  }
+
+  .aside-two h2 {
+    font-size: 2.2em;
+    margin-bottom: 0;
+  }
+
+  .main-content {
+    padding: 30px;
+    text-align: justify;
+  }
+
+  .main-content h1 {
+    font-size: 3em;
+    margin-top: 0;
+  }
+
+  footer {
+    padding: 0 40px 40px 40px;
+  }
+
+  footer h3 {
+    font-size: 2.2em;
+  }
+
+  footer p {
+    font-size: 1.3em;
+  }
+}
