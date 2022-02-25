@@ -1,0 +1,137 @@
+/*
+ * @see http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * apply a natural box layout model to all elements, but allowing components to change
+ */
+ html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 20px;
+  font-size: 20px;
+}
+
+article {
+  font-size: 1.3em;
+}
+
+h1 {
+  font-size: 26px;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+}
+
+img {
+  /* height: 500px; */
+  max-width: 100%;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+main {
+  background-color: lightpink;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+
+figure {
+  /* height: 500px; */
+  /* width: 80%; */
+  display: flex;
+  flex-direction: column;
+  /* margin: 0 auto; */
+}
+
+figcaption {
+  font-size: 1em;
+  text-align: center;
+}
+
+header {
+  background-color: lightpink;
+  border-radius: 15px;
+}
+
+@media screen and (min-width: 700px) {
+  header {
+    background-color: lightgreen;
+  }
+
+  main {
+    background-color: lightgreen;
+  }
+
+  section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  h1 {
+    /* text-align: center; */
+    /* max-width: 1300px; */
+    font-size: 38px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  article {
+    text-align: center;
+    max-width: 1300px;
+    font-size: 1.5em;
+    margin: 0 auto;
+  }
+
+  figcaption {
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (min-width:1500px) {
+  header {
+    background-color: lightskyblue;
+  }
+
+  main {
+    background-color: lightskyblue;
+  }
+  
+}
+
+
+/*
+Realize as seguintes tarefas:
+1 - Faça o tamanho da fonte ser maior; OK
+2 - Faça o tamanho da fonte dos elementos h1 ser menor; OK
+3 - Aumente o espaçamento entre as figuras; OK
+4 - Adicione um pouco de margin na página. OK
+5 - Guarde a largura da tela no ponto que você identificou que o layout atual não funcionou bem (por exemplo 800px) . Esse será o primeiro breakpoint do layout . Um breakpoint é apenas um ponto onde estamos definindo que o design atual deve mudar; (700px pra cima)
+6 - Crie uma media query no seu arquivo CSS , usando a dimensão em pixels que você guardou como o min-width do teste da media query . Dentro desse breakpoint , adicione os seguintes ajustes:
+Altere a cor de fundo (isso vai te ajudar a perceber quando a media query teve efeito) ; OK
+Ajuste o tamanho da fonte; OK
+Ajuste as margens da página; OK
+Faça as imagens serem mostradas em duas colunas.
+7 - Agora, você vai criar outro breakpoint para telas grandes. Redimensione sua tela de novo para encontrar um novo breakpoint .
+8 - Crie uma nova media query no seu arquivo CSS usando a dimensão que você encontrou para telas grandes (por exemplo 1300px) , e realize os seguintes ajustes dentro do breakpoint :
+Altere a cor de fundo; OK
+Ajuste o tamanho da fonte; OK
+Ajuste as margens da página; OK
+Adicione a propriedade max-width à página, para garantir que a largura das linhas não fique muito grande. OK
+*/
