@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  width: 80%;
+  margin: auto;
+}
+
+.control-panel {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.basic {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+  background-color: white;
+}
+
+/* Background */
+.dark-background {
+  background-color: black;
+}
+
+.soft-blue-background {
+  background-color: lightblue;
+}
+
+.soft-pink-background {
+  background-color: lightpink;
+}
+
+/* Words */
+.black-words {
+  color: black;
+}
+
+.red-words {
+  color: red;
+}
+
+.white-words {
+  color: white;
+}
+
+/* Font size */
+.smol {
+  font-size: 12px;
+}
+
+.bigger {
+  font-size: 20px;
+}
+
+.i-said-bigger {
+  font-size: 24px;
+}
+
+/* Line height */
+.twenty {
+  line-height: 20px;
+}
+
+.thirty {
+  line-height: 30px;
+}
+
+/* Fonts */
+.verdana {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.monospace {
+  font-family: monospace;
+}
+
+/* .fantasy {
+  font-family: fantasy, cursive;
+} */
