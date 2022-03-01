@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      display:flex;
+      height: 300px;
+      width: 600px;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+    }
+
+    .container .divs {
+      width: 50px;
+      height: 300px;
+      border-radius: 30px;
+      background-clip: content-box;      
+      background-position: center;
+      background-size: cover;
+      margin: 0 5px;
+    }
+
+    .divs:nth-of-type(1) {
+      background-image: url('https://picsum.photos/200/300');
+    }
+
+
+    .divs:nth-of-type(2) {
+      background-image: url('https://picsum.photos/seed/picsum/200/300');
+    }
+
+    .divs:nth-of-type(3) {
+      background-image: url('https://picsum.photos/id/237/200/300');
+    }
+
+    .divs:nth-of-type(4) {
+      background-image: url('https://picsum.photos/200/300?grayscale');
+    }
+
+    .bigdiv {
+      flex-grow: 1;
+      transition: 1s;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="divs"></div>
+    <div class="divs"></div>
+    <div class="divs"></div>
+    <div class="divs"></div>
+  </div>
+
+
+
+  <script>
+    const myDivs = document.querySelectorAll('.divs');
+    
+    function addClass(event) {
+      const thisdiv = event.target;
+      const alldivs = document.querySelectorAll('.divs');
+      for (let div = 0; div < alldivs.length; div += 1) {
+        if (alldivs[div].classList.contains('bigdiv')) {
+          alldivs[div].classList.remove('bigdiv');
+        }
+      }
+      thisdiv.classList.add('bigdiv');
+    }
+
+    for (let i = 0; i < myDivs.length; i+= 1) {
+      myDivs[i].addEventListener('click', addClass);
+    }
+  </script>
+</body>
+</html>
