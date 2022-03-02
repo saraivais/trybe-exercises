@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.images {
+  height: 250px;
+  width: 350px;
+  object-fit: cover;
+  border-radius: 30px;
+}
