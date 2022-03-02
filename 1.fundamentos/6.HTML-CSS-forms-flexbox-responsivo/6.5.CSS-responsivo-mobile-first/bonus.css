@@ -5,7 +5,43 @@
 
 .images {
   height: 250px;
-  width: 350px;
+  width: 300px;
   object-fit: cover;
   border-radius: 30px;
+}
+
+.tabley {
+  margin: auto;
+}
+
+.divisey {
+  background-color: rgb(255, 246, 124);
+}
+
+.footey {
+  background-color: rgb(116, 255, 186);
+}
+
+@media screen and (max-width:576px) {
+  .images {
+    height: 300px;
+    width: 400px;
+    object-fit: cover;
+    border-radius: 30px;
+  }
+}
+
+@media screen and (min-width:576px) and (max-width:768px) {
+  .images {
+    height: 250px;
+    width: 260px;
+    object-fit: cover;
+    border-radius: 30px;
+  }
+}
+
+@media screen and (max-width:992px) {
+  .linkeys {
+    display: none;
+  }
 }
