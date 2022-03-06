@@ -18,98 +18,137 @@ const thirtyPxBtn = document.querySelector('#thirty-px-btn');
 
 const verdanaBtn = document.querySelector('#verdana-btn');
 const monospaceBtn = document.querySelector('#monospace-btn');
-const fantasyBtn = document.querySelector('#fantasy-btn');
+const gillBtn = document.querySelector('#gill-btn');
 
 const myMain = document.querySelector('#my-main');
 
-let allClasses = 'basic ';
-
-// Função pra cada botão coisar numa let
-
-function reassignClasses() {
-  myMain.className = allClasses;
-}
-
 function addBlackBg() {
-  allClasses += 'dark-background ';
-  reassignClasses();
+  myMain.classList.toggle('dark-background');
+  if (myMain.classList.contains('soft-blue-background') || myMain.classList.contains('soft-pink-background')) {
+    myMain.classList.remove('soft-blue-background');
+    myMain.classList.remove('soft-pink-background');
+  }
 }
 
 function addBlueBg() {
-  allClasses += 'soft-blue-background ';
-  reassignClasses();
+  myMain.classList.toggle('soft-blue-background');
+  if (myMain.classList.contains('dark-background') || myMain.classList.contains('soft-pink-background')) {
+    myMain.classList.remove('dark-background');
+    myMain.classList.remove('soft-pink-background');
+  }
 }
 
 function addPinkBg() {
-  allClasses += 'soft-pink-background ';
-  reassignClasses();
+  myMain.classList.toggle('soft-pink-background');
+  if (myMain.classList.contains('soft-blue-background') || myMain.classList.contains('dark-background')) {
+    myMain.classList.remove('soft-blue-background');
+    myMain.classList.remove('dark-background');
+  }
 }
 
 function blackWords() {
-  allClasses += 'black-words ';
-  reassignClasses();
+  myMain.classList.toggle('black-words');
+  if (myMain.classList.contains('red-words') || myMain.classList.contains('white-words')) {
+    myMain.classList.remove('red-words');
+    myMain.classList.remove('white-words');
+  }
 }
 
 function redWords() {
-  allClasses += 'red-words ';
-  reassignClasses();
+  myMain.classList.toggle('red-words');
+  if (myMain.classList.contains('black-words') || myMain.classList.contains('white-words')) {
+    myMain.classList.remove('black-words');
+    myMain.classList.remove('white-words');
+  }
 }
 
 function whiteWords() {
-  allClasses += 'white-words ';
-  reassignClasses();
+  myMain.classList.toggle('white-words');
+  if (myMain.classList.contains('red-words') || myMain.classList.contains('black-words')) {
+    myMain.classList.remove('red-words');
+    myMain.classList.remove('black-words');
+  }
 }
 
 function smolFont() {
-  allClasses += 'smol ';
-  reassignClasses();
+  myMain.classList.toggle('smol');
+  if (myMain.classList.contains('bigger') || myMain.classList.contains('i-said-bigger')) {
+    myMain.classList.remove('bigger');
+    myMain.classList.remove('i-said-bigger');
+  }
 }
 
 function mediumFont() {
-  allClasses += 'bigger ';
-  reassignClasses();
+  myMain.classList.toggle('bigger');
+  if (myMain.classList.contains('smol') || myMain.classList.contains('i-said-bigger')) {
+    myMain.classList.remove('smol');
+    myMain.classList.remove('i-said-bigger');
+  }
 }
 
 function bigFont() {
-  allClasses += 'i-said-bigger ';
-  reassignClasses();
+  myMain.classList.toggle('i-said-bigger');
+  if (myMain.classList.contains('smol') || myMain.classList.contains('bigger')) {
+    myMain.classList.remove('smol');
+    myMain.classList.remove('bigger');
+  }
 }
 
 function twentyPx() {
-  allClasses += 'twenty ';
-  reassignClasses();
+  myMain.classList.toggle('twenty');
+  if (myMain.classList.contains('thirty')) {
+    myMain.classList.remove('thirty');
+  }
 }
 
 function thirtyPx() {
-  allClasses += 'thirty ';
-  reassignClasses();
+  myMain.classList.toggle('thirty');
+  if (myMain.classList.contains('twenty')) {
+    myMain.classList.remove('twenty');
+  }
 }
 
 function verdanaFont() {
-  allClasses += 'verdana ';
-  reassignClasses();
+  myMain.classList.toggle('verdana');
+  if (myMain.classList.contains('monospace') || myMain.classList.contains('gill')) {
+    myMain.classList.remove('monospace');
+    myMain.classList.remove('gill');
+  }
 }
 
 function monospaceFont() {
-  allClasses += 'monospace ';
-  reassignClasses();
+  myMain.classList.toggle('monospace');
+  if (myMain.classList.contains('verdana') || myMain.classList.contains('gill')) {
+    myMain.classList.remove('verdana');
+    myMain.classList.remove('gill');
+  }
 }
 
-function fantasyFont() {
-  allClasses += 'fantasy ';
-  reassignClasses();
+function gillFont() {
+  myMain.classList.toggle('gill');
+  if (myMain.classList.contains('verdana') || myMain.classList.contains('monospace')) {
+    myMain.classList.remove('verdana');
+    myMain.classList.remove('monospace');
+  }
 }
 
 function reset() {
-  allClasses = 'basic ';
-  reassignClasses();
+  myMain.className = 'basic';
+  localStorage.clear();
 }
 
 function saveLocalStorage() {
-  localStorage.setItem('classes', allClasses);
+  const allClasses = myMain.classList;
+  localStorage.setItem('all-classes', allClasses.value);
+}
+
+function retrieveClasses() {
+  const allClassesToAdd = localStorage.getItem('all-classes');
+  myMain.className = allClassesToAdd;
 }
 
 window.onload = () => {
+  retrieveClasses();
   resetBtn.addEventListener('click', reset);
   saveBtn.addEventListener('click', saveLocalStorage);
   blackBgBtn.addEventListener('click', addBlackBg);
@@ -125,5 +164,5 @@ window.onload = () => {
   thirtyPxBtn.addEventListener('click', thirtyPx);
   verdanaBtn.addEventListener('click', verdanaFont);
   monospaceBtn.addEventListener('click', monospaceFont);
-  fantasyBtn.addEventListener('click', fantasyFont);
+  gillBtn.addEventListener('click', gillFont);
 }

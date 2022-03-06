@@ -77,6 +77,6 @@ main {
   font-family: monospace;
 }
 
-/* .fantasy {
-  font-family: fantasy, cursive;
-} */
+.gill {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
