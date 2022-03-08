@@ -23,7 +23,6 @@ function RomanToNumber(romanNumber) {
 
   for (let i = normalNumber.length - 1; i >= 0; i -= 1) {
     if (normalNumber[i] > normalNumber[i-1]) {
-      console.log();
       normalNumber[i] -= normalNumber[i-1];
       normalNumber.splice(i-1, 1);
       continue;
