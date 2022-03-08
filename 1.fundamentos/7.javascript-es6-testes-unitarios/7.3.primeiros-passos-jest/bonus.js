@@ -46,8 +46,23 @@ const professionalBoard = [
 ];
 
 // Pesquisa
-const searchEmployee = (id, detail) => {
-  console.log(`Recebi isso: ${id} e ${detail}`);
+const searchEmployee = (iD, detail) => {
+  let detailToReturn = '';
+  for (let item of professionalBoard) {
+    if (!item[detail]) {
+        throw new Error ('Informação indisponível');
+      }
+    if (item.id === iD) {
+      if (detail === 'specialities') {
+        detailToReturn = item[detail].join(' ');
+        return `ID: ${iD}, ${detail}: ${detailToReturn}`;
+      }
+      return `ID: ${iD}, ${detail}: ${item[detail]}`;
+    }
+  }
 };
+
+// console.log(searchEmployee('4456-4', 'specialities'));
+searchEmployee('4456-4', 'specialities');
 
 module.exports = searchEmployee;
