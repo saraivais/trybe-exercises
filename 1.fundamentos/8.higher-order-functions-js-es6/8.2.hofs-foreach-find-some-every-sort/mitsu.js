@@ -61,11 +61,24 @@ const books = [
   },
 ];
 
-// Faça uma função que retorne true, caso nenhum author tenha nascido no mesmo ano, e false, caso contrário.
+// Retorne o nome do livro de menor nome.
 
-// const expectedResult = false;
+function smallerName(books) {
+  // Namebook, segura isso aqui:
+  let nameBook = books[0].name;
 
-function authorUnique(arr) {
+  // Olhando todas as caixinhas, uma por vez:
+  books.forEach(livro => {
+    // Se a caixinha da vez tiver o nome MENOR que o que o nameBook tá segurando:
+    if (livro.name.length < nameBook.length) {
+      // O nameBook vai segurar a menor e vai jogar o antigo fora:
+      nameBook = livro.name;
+    }
+  });
+
+  // Se eu rodei o array todinho, fazendo o namebook largar o maior e segurar apenas o menor de cada comparação:
+  return nameBook;
+  // Retornar o menor nome;
 }
 
-console.log(authorUnique(books));
+console.log(smallerName(books));
