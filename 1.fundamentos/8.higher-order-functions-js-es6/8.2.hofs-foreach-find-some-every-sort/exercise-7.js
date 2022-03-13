@@ -66,6 +66,12 @@ const books = [
 // const expectedResult = false;
 
 function authorUnique(arr) {
+  // every - retorna true se callback retornar true pra todo mundo~
+  return arr.every((element) => 
+  // some - retorna true se a callback retorna true pra algum~
+  // !some pq o some returna true e o never precisa do false~
+  !arr.some(
+    (compare) => (element.author.birthYear === compare.author.birthYear && element.author.name !== compare.author.name)));
 }
 
 console.log(authorUnique(books));
