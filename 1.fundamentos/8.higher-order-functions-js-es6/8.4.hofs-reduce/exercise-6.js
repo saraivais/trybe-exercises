@@ -8,7 +8,7 @@ function studentAverage() {
   return students.map((elemento, index) => ({name: elemento, average: (medias[index]/5)})); 
 }
 
-console.log(studentAverage());
+// console.log(studentAverage());
 
 const expected = [
   { name: 'Pedro Henrique', average: 7.8 },
