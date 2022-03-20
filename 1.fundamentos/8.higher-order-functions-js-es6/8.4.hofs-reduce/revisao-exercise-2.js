@@ -61,20 +61,23 @@ const books = [
   },
 ];
 
-// Crie uma string com os nomes de todas as pessoas autoras:
+// Crie uma string com os nomes de todas as pessoas autoras.
 
 const expectedResult = "George R. R. Martin, J. R. R. Tolkien, Isaac Asimov, Frank Herbert, Stephen King, H. P. Lovecraft.";
 
-// reduce(funcao, valorInicial);
+// Recebe: array de objetos;
+// Retorna: uma string;
+
 function reduceNames(arr) {
-  return result = arr.reduce((acc, curr) => {
-    if (curr === arr[0]) {
-      return `${acc}${curr.author.name}`
-    } else if (curr === arr[arr.length - 1]) {
-      return `${acc}, ${curr.author.name}.`
+
+  const allNames = arr.reduce(((acumulador, valorAtual) => {
+    if (valorAtual === arr[arr.length-1]) {
+      return acumulador += `${valorAtual.author.name}.`;
     }
-    return `${acc}, ${curr.author.name}`
-  }, '');
+    return acumulador += `${valorAtual.author.name}, `;
+  }), '');
+  return allNames;
+
 }
 
 console.log(reduceNames(books));

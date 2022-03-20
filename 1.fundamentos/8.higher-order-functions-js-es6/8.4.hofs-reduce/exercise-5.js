@@ -4,6 +4,7 @@ const names = [
   'Abeladerco', 'Adieidy', 'Alarucha',
 ];
 
+// 'Aanemarie' => [A, a, n, e, m, a, r, i, e] => Aaa;
 // Dada o array de nomes, retorne a quantidade de vezes em que aparecem a letra 'a' maiúscula ou minúscula.
 
 function containsA(arr) {
