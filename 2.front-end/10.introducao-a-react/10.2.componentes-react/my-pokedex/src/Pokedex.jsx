@@ -3,13 +3,18 @@
 import React from "react";
 import pokemons from "./data";
 import Pokemon from "./Pokemon";
+import PropTypes from "prop-types"
 
 class Pokedex extends React.Component {
   render () {
-    return <ol>
+    return <ol className="card-container">
         {pokemons.map((onePokemon) => <Pokemon key={onePokemon.id} pokemon={onePokemon}/>)}
       </ol>
   }
+}
+
+Pokedex.propTypes = {
+  pokemons: PropTypes.array,
 }
 
 export default Pokedex

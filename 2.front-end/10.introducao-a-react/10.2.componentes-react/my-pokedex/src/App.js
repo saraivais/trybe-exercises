@@ -1,9 +1,13 @@
 import './App.css';
 import Pokedex from './Pokedex';
+import Header from './Header';
 
 function App() {
   return (
-    <Pokedex/>
+    <>
+      <Header />
+      <Pokedex/>
+    </>
   );
 }
 
