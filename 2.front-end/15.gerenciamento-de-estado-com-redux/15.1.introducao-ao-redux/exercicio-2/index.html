@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Informações do primeiro Reducer:</h1>
+      <p>Nome: <span id="nome-1">Rodrigo</span></p>
+      <p>Sobrenome: <span id="sobrenome-1">Santos da Silva</span></p>
+      <p>Endereço: <span id="endereco-1">Rua Soldado Mathias, 765</span></p>
+      <p>Cidade: <span id="cidade-1">Belo Horizonte</span></p>
+    </div>
+    <div id="container">
+      <h1>Informações do segundo Reducer:</h1>
+      <p>Nome: <span id="nome-2">Bruna</span></p>
+      <p>Sobrenome: <span id="sobrenome-2">Santana Oliveira</span></p>
+      <p>Endereço: <span id="endereco-2">Rua Holanda, 332</span></p>
+      <p>Cidade: <span id="cidade-2">São Paulo</span></p>
+    </div>
+    <script>
+      const ESTADO_INICIAL_1 = {
+        nome: 'Rodrigo',
+        sobrenome: 'Santos da Silva',
+        endereco: 'Rua Soldado Mathias, 765',
+        cidade: 'Belo Horizonte',
+      };
+
+      const ESTADO_INICIAL_2 = {
+        nome: 'Bruna',
+        sobrenome: 'Santana Oliveira',
+        endereco: 'Rua Holanda, 332',
+        cidade: 'São Paulo',
+      };
+
+      // Crie actions que alterem o nome e o sobrenome dos estados iniciais, e adapte seu respectivo reducer.
+      const mudaNomeEstado1 = { type: 'change-name-1' };
+      const mudaNomeEstado2 = { type: 'change-name-2' };
+
+      const meuPrimeiroReducer = (state = ESTADO_INICIAL_1, action) => {
+        switch (action.type) {
+          case 'change-name-1':
+            return {... state, nome: 'Airel', sobrenome: 'Ribeiro', endereco: 'de pantufas no meu coração', cidade: 'isadoralândia' }
+          default:
+            return state;
+        }
+      };
+
+      const meuSegundoReducer = (state = ESTADO_INICIAL_2, action) => {
+        switch (action.type) {
+          case 'change-name-2':
+            return {... state, nome: 'Daniel', sobrenome: 'Tostes', endereco: 'de pantufas no meu coração', cidade: 'isadoralândia' }
+          default:
+            return state;
+        }
+      };
+
+      // Combine os reducers existentes com a função combineReducers e salve-o em uma constante.
+      const reducersCombinados = Redux.combineReducers({
+        meuPrimeiroReducer,
+        meuSegundoReducer
+      });
+
+      // Crie uma store com a combinação dos reducers.
+      const store = Redux.createStore(reducersCombinados);
+
+      store.subscribe(() => {
+        const newState = store.getState();
+        document.querySelector('#nome-1').innerText = newState.meuPrimeiroReducer.nome;
+        document.querySelector('#sobrenome-1').innerText = newState.meuPrimeiroReducer.sobrenome;
+        document.querySelector('#endereco-1').innerText = newState.meuPrimeiroReducer.endereco;
+        document.querySelector('#cidade-1').innerText = newState.meuPrimeiroReducer.cidade;
+        document.querySelector('#nome-2').innerText = newState.meuSegundoReducer.nome;
+        document.querySelector('#sobrenome-2').innerText = newState.meuSegundoReducer.sobrenome;
+        document.querySelector('#endereco-2').innerText = newState.meuSegundoReducer.endereco;
+        document.querySelector('#cidade-2').innerText = newState.meuSegundoReducer.cidade;
+      })
+
+      window.onload = () => {
+        setTimeout(() => {
+          store.dispatch(mudaNomeEstado1);
+        }, 3000);
+        setTimeout(() => {
+          store.dispatch(mudaNomeEstado2);
+        }, 5000);
+      };
+    </script>
+  </body>
+</html>
