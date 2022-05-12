@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+
+      #container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      button {
+        height: 50px;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <p>Color: <span id="value">white</span></p>
+      <button id="previous">Previous color</button>
+      <button id="next">Next color</button>
+      <button id="random">Random color</button>
+    </div>
+    <script>
+
+      const ESTADO_INICIAL = {
+        colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
+        index: 0,
+      };
+
+      const PREVIOUS_COLOR = 'previous-color';
+      const NEXT_COLOR = 'next-color';
+      const RANDOM_COLOR = 'random-color';
+
+      // ACTIONS
+
+      actionPrevious = () => {
+        return { type: PREVIOUS_COLOR };
+      };
+
+      actionNext = () => {
+        return { type: NEXT_COLOR };
+      };
+
+      actionRandom = () => {
+        return { type: RANDOM_COLOR };
+      };
+
+      newColorGenerator = () => {
+        return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+      }
+
+      // Crie um reducer, implementando um switch retornando apenas o estado inicial como default. Não se esqueça de colocar o reducer como parâmetro para o createStore, feito na etapa anterior.
+      // Incremente o switch criado no exercício anterior com as actions NEXT_COLOR e PREVIOUS_COLOR. Essas actions devem alterar o valor index guardado no ESTADO_INICIAL. Atente-se aos limites de tamanho do array, as posições devem iniciar em 0 e não podem exceder a numeração do último item do array.
+      const reducer = (state = ESTADO_INICIAL, action) => {
+        switch(action.type) {
+          case 'previous-color':
+            return {... state, index: state.index === 0 ? state.colors.length - 1 : state.index - 1};
+          case 'next-color':
+            return {... state, index: state.index === 5 ? 0 : state.index + 1};
+          case 'random-color':
+            return {... state, colors: [...state.colors, newColorGenerator()], index: state.colors.length};
+          default:
+            return {... state};
+        }
+      }
+
+      // Crie uma store para a nossa aplicação
+      const store = Redux.createStore(reducer);
+      console.log(store);
+      console.log(store.getState());
+
+      // Crie eventListeners que escutam os cliques de cada botão, o Previous color e o Next color, e realizam um dispatch com o respectivo action.type de cada.
+
+      const previousBtn = document.querySelector('#previous');
+      previousBtn.addEventListener('click', () => {
+        store.dispatch(actionPrevious());
+        console.log('cliquei previous');
+      });
+
+      const nextBtn = document.querySelector('#next');
+      nextBtn.addEventListener('click', () => {
+        store.dispatch(actionNext());
+        console.log('cliquei next');
+      });
+
+      const randomBtn = document.querySelector('#random');
+      randomBtn.addEventListener('click', () => {
+        store.dispatch(actionRandom());
+        console.log('aleatorio');
+      })
+
+      store.subscribe(() => {
+        const currState = store.getState();
+        console.log('index', currState.index);
+        const container = document.querySelector('#container');
+        const colorText = document.querySelector('#value');
+        container.style.setProperty('background-color', currState.colors[currState.index]);
+        colorText.innerText = currState.colors[currState.index];
+      });
+
+    </script>
+  </body>
+</html>
