@@ -77,5 +77,7 @@ SELECT last_name, hire_date FROM employees
 WHERE hire_date LIKE '1987-07%';
 
 -- 18. Write a query that displays the following information for each employee: first name, last name, time working at the company (in days);
+SELECT first_name, last_name, DATEDIFF(CURRENT_DATE(), hire_date) AS 'time spent in days' FROM employees;
+
 SELECT first_name, last_name, DATEDIFF(end_date, start_date) AS 'days worked' FROM employees JOIN job_history
 ON (employees.employee_id = job_history.employee_id);
