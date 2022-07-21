@@ -18,7 +18,9 @@ CREATE TABLE managers (
 CREATE TABLE keepers (
 	keeper_id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(30),
-    last_name VARCHAR(30) NOT NULL
+    last_name VARCHAR(30) NOT NULL,
+    manager_id INT,
+    FOREIGN KEY (manager_id) REFERENCES managers (manager_id)
 );
 -- SELECT * FROM keepers;
 
@@ -42,12 +44,12 @@ CREATE TABLE animal (
 
 -- now create the N:N tables, manager/keeper & keeper/species
 
-CREATE TABLE keeper_per_manager (
-	manager_id INT,
-    FOREIGN KEY (manager_id) REFERENCES managers (manager_id),
-    keeper_id INT,
-    FOREIGN KEY (keeper_id) REFERENCES keepers (keeper_id)
-);
+-- CREATE TABLE keeper_per_manager (
+-- 	manager_id INT,
+--     FOREIGN KEY (manager_id) REFERENCES managers (manager_id),
+--     keeper_id INT,
+--     FOREIGN KEY (keeper_id) REFERENCES keepers (keeper_id)
+-- );
 -- SELECT * FROM keeper_per_manager;
 
 CREATE TABLE species_per_keeper (
