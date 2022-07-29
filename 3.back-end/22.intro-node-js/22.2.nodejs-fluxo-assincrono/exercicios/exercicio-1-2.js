@@ -15,7 +15,6 @@ function mathThingy(a, b, c) {
 
 // exercicio 2
 function main() {
-
   mathThingy(Math.random() * 100 + 1, Math.random() * 100 + 1, Math.random() * 100 + 1)
     .then((result) => console.log(result))
     .catch((err) => console.log(err));
