@@ -1,0 +1,11 @@
+{
+  "name": "exercicios-revisao",
+  "version": "1.0.0",
+  "description": "revisao exercicios 22.2~ refazendo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "saraivais",
+  "license": "ISC"
+}

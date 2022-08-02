@@ -12,15 +12,20 @@ const fs = require('fs').promises;
 
 async function choseAndReadFile() {
   const chosenFile = await rl.question('Which file would you like to read?\nfile0\nfile1\nfile2\nfile3\nfile4\nfileAll\n');
-  const readResult = await fs.readFile(`${chosenFile}.txt`);
-  if (!readResult) {
-    console.log('DEU RUIM');
+  let readResult;
+  try {
+    readResult = await fs.readFile(`${chosenFile}.txt`);
+  } catch(err) {
+    console.log('NOME DO ERRO:', err.name);
+    return new Error('Arquivo não existente~');
   }
-  const jsonResult = await JSON.parse(readResult);
-  if (!jsonResult) {
-    console.log('deu erro aqui');
+  try {
+    const jsonResult = await JSON.parse(readResult);
+    return jsonResult;
+  } catch(err) {
+    // console.log(err);
+    console.error(err);
   }
-  return jsonResult;
 }
 
 function main() {

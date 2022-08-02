@@ -14,7 +14,7 @@ async function choseAndReadFile() {
   const chosenFile = await rl.question('Which file would you like to read?\nfile0\nfile1\nfile2\nfile3\nfile4\nfileAll\n');
   const readResult = await fs.readFile(`${chosenFile}.txt`, (error, data) => {
     if (error) {
-      throw new Error('inferno na torreeeeeee');
+      throw new Error('a');
     }
   });
   const jsonResult = await JSON.parse(readResult);
