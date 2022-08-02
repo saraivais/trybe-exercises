@@ -6,7 +6,6 @@
 // Programe sua função para que ela faça a leitura de todos os arquivos criados no item anterior, armazene essa informação e escreva em um arquivo chamado fileAll.txt.
 const fs = require('fs').promises;
 
-
 async function writeOneFile(string, index) {
   const stringToWrite = JSON.stringify(string); //which makes no fucking sense but im not in position to question rn
   await fs.writeFile(`file${index}.txt`, stringToWrite);
