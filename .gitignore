@@ -1,3 +1,4 @@
 # node_modules em todas as pastas subsequentes;
 # dica de Marcelo Adriano~ https://github.com/marcelo-adriano
 **/node_modules/
+**.env
