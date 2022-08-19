@@ -1,6 +1,6 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
-const connection = require('../../models/connection');
+// const connection = require('../../models/connection');
 
 const MoviesModel = require('../../models/movieModel');
 const MoviesService = require('../../services/movieService');
@@ -54,4 +54,11 @@ describe('Insere um novo filme no BD', () => {
     });
 
   });
+});
+
+describe('Encontra um filme no DB', () => {
+
+  describe('Quando o ID é válido', () => {});
+
+  describe('Quando o ID é inválido', () => {});
 });

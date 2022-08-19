@@ -36,3 +36,46 @@ describe('Insere um novo filme no BD', () => {
 
   });
 });
+
+// MoviesModel.getById = () => {};
+
+describe('Encontra um filme no DB', () => {
+
+  describe('Quando o id existe', () => {
+    const movieIdToSearch = {
+      id: 1,
+    }
+  
+    before(async () => {
+      const execute = [[{
+        insertId: 1,
+        title: 'Example Movie',
+        directedBy: 'Jane Dow',
+        releaseYear: 1999,
+      }]];
+  
+      sinon.stub(connection, 'execute').resolves(execute);
+    });
+
+    after(async () => {
+      connection.execute.restore();
+    });
+
+    it('retorna um objeto', async () => {
+      const response = await MoviesModel.getById(movieIdToSearch);
+
+      expect(response).to.be.a('array');
+    });
+
+    it('o objeto contém as keys insertId, title, directedBy e releaseYear', async () => {
+      const response = await MoviesModel.getById(movieIdToSearch);
+
+      expect(response).to.have.all.keys('insertId', 'title', 'directedBy', 'releaseYear');
+    });
+  });
+
+  describe('Quando o id não existe', () => {
+    it('retorna um ')
+  });
+
+});
