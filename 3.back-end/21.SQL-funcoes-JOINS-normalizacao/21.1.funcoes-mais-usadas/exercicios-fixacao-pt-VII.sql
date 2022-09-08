@@ -6,9 +6,9 @@ USE sakila;
 -- FROM sakila.film
 -- GROUP BY rating;
     
-SELECT rating, AVG(length) AS 'average length' FROM film
+SELECT rating, AVG(length) AS average_length FROM film
 GROUP BY rating
-HAVING AVG(length) BETWEEN 115.0 and 121.50;
+HAVING average_length BETWEEN 115.0 and 121.50;
 -- Dúvida~ não consigo usar alias p/ comparação. Tem algum jeito?
 
 -- Using the following query, display only the total replacement cost values ​​that are above $3950.50. Give an alias that makes sense to SUM(replacement_cost), in a way that makes the query more readable. Finish by sorting the results in ascending order;

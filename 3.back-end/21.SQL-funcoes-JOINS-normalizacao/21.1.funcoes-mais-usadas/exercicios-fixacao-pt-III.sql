@@ -13,7 +13,7 @@ SELECT ROUND(15 + (RAND() * 5));
 -- Build a query that displays the value rounded to 15.7515971 with a precision of 5 decimal places;
 SELECT ROUND(15.7515971, 5);
 SELECT TRUNCATE(15.7515971, 5);
--- Qual é o melhor?
+-- truncate podia servir pro PI~
 
 -- We have an average of 39,494 shirt sales per month. What is the approximate value below this average?
 SELECT FLOOR(39.494);
